@@ -1,0 +1,25 @@
+redisscan
+
+redis 多线程扫描版支持猜弱口令判断root权限
+
+hiredis库下载地址
+https://github.com/redis/hiredis
+直接make 生成a库和so库
+
+Build command
+g++ redisscan.cpp -I[hiredis 目录] -L [hiredis 目录] -o redisscan -lhiredis -lpthread
+
+静态链接 
+g++ redisscan.cpp -I[hiredis 目录] -L. -lhiredis -o redisscan -lhiredis -lpthread
+
+centos6.5 x86_64 + mac os x 10.11测试成功
+
+$ ./redisscan -h
+redisscan help:
+        -h                help
+        -i filename        ip file path
+        -p port                defualt port
+        -t num                max thread count
+        -d filename        password file path
+        -o num                timeout (sec)
+        -r filename        result file path
